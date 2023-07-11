@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: core-playground-frontend
+  namespace: thinkcloudly-lab
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod" # Replace this with a production issuer once you've tested it
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - lab.thinkcloudly.com
+    secretName: frontend-tls-prod
+  rules:
+  - host: lab.thinkcloudly.com
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: core-playground-frontend
+              port:
+                number: 80

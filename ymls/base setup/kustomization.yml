@@ -1,0 +1,6 @@
+secretGenerator:
+- name: aws-credentials
+  namespace: thinkcloudly-lab
+  files:
+  - aws_id
+  - aws_secret
