@@ -50,5 +50,3 @@ spec:
           value: us-west-2
         - name: PORT
           value: '80'
-        
-
